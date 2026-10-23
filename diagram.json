@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Sandeep Dhangar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -125, "left": 120, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 150, "left": -110, "attrs": { "color": "orange" } },
+    { "type": "board-ssd1306", "id": "oled1", "top": 170, "left": 200, "attrs": { "i2cAddress": "0x3c" } },
+    { "type": "wokwi-led", "id": "ledEna", "top": -110, "left": -120, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "ledIn1", "top": -110, "left": -80, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledIn2", "top": -110, "left": -40, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-resistor", "id": "rEna", "top": -40, "left": -125, "rotate": 90, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "rIn1", "top": -40, "left": -85, "rotate": 90, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "rIn2", "top": -40, "left": -45, "rotate": 90, "attrs": { "value": "330" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:32", "green", [ "v0" ] ],
+    [ "btn1:1.l", "esp:27", "yellow", [ "v0" ] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [ "v0" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "oled1:SDA", "esp:21", "blue", [ "v0" ] ],
+    [ "oled1:SCL", "esp:22", "purple", [ "v0" ] ],
+    [ "ledEna:A", "rEna:1", "red", [ "v0" ] ],
+    [ "rEna:2", "esp:14", "red", [ "v0" ] ],
+    [ "ledEna:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ledIn1:A", "rIn1:1", "green", [ "v0" ] ],
+    [ "rIn1:2", "esp:26", "green", [ "v0" ] ],
+    [ "ledIn1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ledIn2:A", "rIn2:1", "gold", [ "v0" ] ],
+    [ "rIn2:2", "esp:25", "gold", [ "v0" ] ],
+    [ "ledIn2:C", "esp:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
