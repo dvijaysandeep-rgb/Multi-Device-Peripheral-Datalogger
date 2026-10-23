@@ -1,0 +1,13 @@
+# ESP32 Embedded Projects
+
+Two ESP32 + FreeRTOS/embedded control projects, simulated in Wokwi.
+
+| Folder | Project |
+|---|---|
+| `01-freertos-multitask-scheduler` | Multi-tasking RTOS firmware scheduler: sensor, display and emergency alarm tasks with queue, task notification and mutex |
+| `02-conveyor-speed-regulator` | Automated mini conveyor belt: L298N + DC motor + optical sensor, closed-loop PID speed control |
+| `03-datalogger-node` | Datalogger node: DHT22 data on I2C OLED while logging timestamped records to SPI microSD |
+
+Each folder has its own README with wiring, design, and test results.
+
+Author: Sandeep Dhangar
